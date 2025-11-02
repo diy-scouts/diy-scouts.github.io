@@ -4,8 +4,6 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-
-
 const SRC_DIR = "./badges-src";
 const OUT_DIR = "./badges";
 const TEMPLATE_PATH = "./templates/badge-template.html";
@@ -23,8 +21,6 @@ async function build() {
     const srcPath = path.join(SRC_DIR, file);
     const raw = await fs.readFile(srcPath, "utf-8");
     const { data, content } = matter(raw);
-    console.log(data.title);
-
 
     marked.setOptions({
       gfm: true,               // enables tables, strikethrough, task lists
@@ -66,14 +62,14 @@ async function generateIndex(badges) {
   const listItems = badges
     .map(
       b =>
-        `<li><a href="${b.file}">${b.emoji} ${b.title}</a></li>`
+        `<li><a href="badges/${b.file}">${b.emoji} ${b.title}</a></li>`
     )
     .join("\n");
 
   const baseIndex = await fs.readFile(INDEX_PATH, "utf-8");
   const updatedIndex = baseIndex.replace(
     /<ul>[\s\S]*<\/ul>/,
-    `<ul>\n${listItems}\n</ul>`
+    `<ul>\n\t\t\t\t${listItems}\n\t\t\t</ul>`
   );
 
   await fs.outputFile(INDEX_PATH, updatedIndex);
