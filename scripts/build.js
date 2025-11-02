@@ -13,7 +13,7 @@ async function build() {
   console.log("🌿 Building badge pages...");
 
   const template = await fs.readFile(TEMPLATE_PATH, "utf-8");
-  const files = (await fs.readdir(SRC_DIR)).filter(f => f.endsWith(".md"));
+  const files = (await fs.readdir(SRC_DIR)).filter((f) => f.endsWith(".md"));
 
   const badgeLinks = [];
 
@@ -23,11 +23,10 @@ async function build() {
     const { data, content } = matter(raw);
 
     marked.setOptions({
-      gfm: true,               // enables tables, strikethrough, task lists
-      breaks: true,            // respect single line breaks
-      headerIds: false,        // avoids weird auto-generated header IDs
+      gfm: true, // enables tables, strikethrough, task lists
+      breaks: true, // respect single line breaks
+      headerIds: false, // avoids weird auto-generated header IDs
     });
-
 
     const htmlContent = marked.parse(content);
     const finalHTML = template
@@ -60,10 +59,7 @@ async function build() {
 
 async function generateIndex(badges) {
   const listItems = badges
-    .map(
-      b =>
-        `<li><a href="badges/${b.file}">${b.emoji} ${b.title}</a></li>`
-    )
+    .map((b) => `<li><a href="badges/${b.file}">${b.emoji} ${b.title}</a></li>`)
     .join("\n");
 
   const baseIndex = await fs.readFile(INDEX_PATH, "utf-8");
@@ -80,14 +76,13 @@ const distDir = "./badges";
 
 const badgeFiles = fs
   .readdirSync(distDir)
-  .filter(f => f.endsWith(".html"))
-  .map(f => path.basename(f, ".html"));
+  .filter((f) => f.endsWith(".html"))
+  .map((f) => path.basename(f, ".html"));
 
 fs.writeFileSync(
   path.join(distDir, "index.json"),
   JSON.stringify(badgeFiles, null, 2),
   "utf8"
 );
-
 
 build().catch(console.error);

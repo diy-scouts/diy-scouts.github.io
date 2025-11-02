@@ -1,16 +1,16 @@
 :root {
-  --ink: #2A2A2A;
+  --ink: #2a2a2a;
   --kraft: #cfb793;
-  --sky: #F6F5EF;
-  --yellow: #F4C10E;
-  --olive: #6B7D3F;
-  --red: #C94A4A;
+  --sky: #f6f5ef;
+  --yellow: #f4c10e;
+  --olive: #6b7d3f;
+  --red: #c94a4a;
 }
 
 body {
   background-color: var(--sky);
   color: var(--ink);
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
   margin: 0;
   line-height: 1.6;
   font-size: large;
@@ -21,8 +21,10 @@ main {
   max-width: 40rem;
 }
 
-h1, h2, h3 {
-  font-family: 'Typewriter', monospace;
+h1,
+h2,
+h3 {
+  font-family: "Typewriter", monospace;
   color: var(--ink);
 }
 
@@ -52,20 +54,22 @@ a.button {
   border-radius: 0.3rem;
   text-decoration: none;
   font-weight: bold;
-  
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --sky: #1e1e1e;
-    --ink: #F6F5EF;
+    --ink: #f6f5ef;
   }
-  body { background-color: var(--sky); color: var(--ink); }
+  body {
+    background-color: var(--sky);
+    color: var(--ink);
+  }
 }
 
 @font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src: url('../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf');
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -76,7 +80,8 @@ table {
   margin: 1rem 0;
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--kraft);
   padding: 0.5rem;
   text-align: left;
@@ -88,7 +93,8 @@ th {
 }
 
 @media (prefers-color-scheme: dark) {
-  th, td {
+  th,
+  td {
     border-color: #444;
   }
 }

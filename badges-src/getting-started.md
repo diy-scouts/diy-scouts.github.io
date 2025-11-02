@@ -10,6 +10,7 @@ overview: Welcome to your adventure! This badge helps you set up your journey wi
 <!-- TODO: Use better html tags to show useful forms/checkboxes for activities -->
 
 ## Activities
+
 Pick **4 of the 7** following activities:
 
 1. [ ] Form Your Group
@@ -19,7 +20,6 @@ Pick **4 of the 7** following activities:
 5. [ ] Resource Check
 6. [ ] Badge Board & Tracker Setup
 7. [ ] Community Connect
-
 
 ### Solo / Group Options
 

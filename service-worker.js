@@ -6,7 +6,7 @@ const BASE_ASSETS = [
   "./index.html",
   "./about.html",
   "./assets/css/style.css",
-  "./manifest.json"
+  "./manifest.json",
 ];
 
 //Auto-include badge pages if the folder exists
@@ -15,13 +15,13 @@ async function getBadgeFiles() {
     const res = await fetch("./badges/index.json");
     if (!res.ok) return [];
     const badgeList = await res.json();
-    return badgeList.map(name => `./badges/${name}.html`);
+    return badgeList.map((name) => `./badges/${name}.html`);
   } catch (e) {
     return [];
   }
 }
 
-self.addEventListener("install", event => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
@@ -32,18 +32,22 @@ self.addEventListener("install", event => {
   );
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.map(k => (k !== CACHE_NAME ? caches.delete(k) : null)))
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys.map((k) => (k !== CACHE_NAME ? caches.delete(k) : null))
+        )
+      )
   );
   self.clients.claim();
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then(resp => {
+    caches.match(event.request).then((resp) => {
       return resp || fetch(event.request);
     })
   );
