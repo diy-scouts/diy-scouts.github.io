@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badges | DIY Scouts</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <base href="https://diy-scouts.github.io/" />
+    <nav>
+      <a href="index.html">🕮 DIY Scouts</a> |
+      <a href="">About</a> |
+      <a href="">Downloads</a> |
+      <a href="badges/index.html">Badges</a> | 
+      <a href="">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>🕮 DIY Scouts</h1>
+    <section>
+      <h2>Build skills, friendship, and community</h2>
+      <p>A zine-inspired guidebook for learning and doing together. Start small, explore freely, and grow your skills.</p>
+      <a href="badges/getting-started.html" class="button">🌱 Getting Started</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 DIY Scouts>Contact</a></p>
+  </footer>
+</body>
+</html>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(reg => console.log("Service worker registered:", reg.scope))
+      .catch(err => console.error("Service worker registration failed:", err));
+  });
+}
+</script>

@@ -1,0 +1,94 @@
+:root {
+  --ink: #2A2A2A;
+  --kraft: #cfb793;
+  --sky: #F6F5EF;
+  --yellow: #F4C10E;
+  --olive: #6B7D3F;
+  --red: #C94A4A;
+}
+
+body {
+  background-color: var(--sky);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  font-size: large;
+}
+
+main {
+  margin: auto;
+  max-width: 40rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Typewriter', monospace;
+  color: var(--ink);
+}
+
+header {
+  nav {
+    background: var(--kraft);
+  }
+  text-align: center;
+}
+
+footer {
+  background: var(--kraft);
+  text-align: center;
+  height: 50%;
+}
+
+nav a {
+  margin: 0 0.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.button {
+  background: var(--olive);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-weight: bold;
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sky: #1e1e1e;
+    --ink: #F6F5EF;
+  }
+  body { background-color: var(--sky); color: var(--ink); }
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  src: url('../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid var(--kraft);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: var(--kraft);
+  color: var(--ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  th, td {
+    border-color: #444;
+  }
+}
