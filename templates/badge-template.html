@@ -18,9 +18,9 @@
     </header>
 
     <main>
-      <h1>{{title}}</h1>
-      <p>Type: {{type}}</p>
-      <p>Category: {{category}}</p>
+      <h1>{{title}} Badge</h1>
+      <p>Type: <b>{{type}}</b></p>
+      <p>Category: {{category}}</b></p>
       <p>Purpose: {{purpose}}</p>
       <h2>Badge Overview</h2>
       <p>{{overview}}</p>
@@ -32,3 +32,19 @@
     </footer>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll('input[type="checkbox"][data-id]')
+      .forEach((box) => {
+        const key = `checklist_${box.dataset.id}`;
+        // restore saved state
+        box.checked = localStorage.getItem(key) === "true";
+        // save state when changed
+        box.addEventListener("change", () => {
+          localStorage.setItem(key, box.checked);
+        });
+      });
+  });
+</script>

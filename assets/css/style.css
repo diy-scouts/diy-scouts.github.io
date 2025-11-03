@@ -13,7 +13,7 @@ body {
   font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
   margin: 0;
   line-height: 1.6;
-  font-size: large;
+  font-size: medium;
 }
 
 main {
@@ -96,5 +96,84 @@ th {
   th,
   td {
     border-color: #444;
+  }
+}
+
+fieldset {
+  border: 2px solid #c7a878; /* kraft brown */
+  border-radius: 8px;
+  background-color: #f6f5ef; /* sky off-white */
+  padding: 0rem 1rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.activities {
+  display: grid;
+}
+
+legend {
+  font-weight: bold;
+  color: #2a2a2a; /* charcoal ink */
+}
+
+legend label {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.25rem 0 0;
+
+  gap: 0.25rem;
+}
+
+/* Label layout */
+label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.4;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  flex-shrink: 1;
+  transform: scale(1.5);
+  accent-color: #6b7d3f;
+}
+
+/* Light/Moderate/Challenge bold titles */
+label strong {
+  color: #2a2a2a;
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+
+/* === Responsive adjustments === */
+@media (min-width: 700px) {
+  .activities {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+/* === Print styling === */
+@media print {
+  details[open],
+  details {
+    open: true;
+  }
+  fieldset {
+    border: 1px solid #000;
+    background: #fff;
+  }
+  input[type="checkbox"] {
+    transform: scale(1);
+    accent-color: black;
+  }
+  body {
+    color: #000;
+    background: #fff;
   }
 }

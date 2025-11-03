@@ -28,7 +28,11 @@ async function build() {
       headerIds: false, // avoids weird auto-generated header IDs
     });
 
-    const htmlContent = marked.parse(content);
+    let htmlContent = marked.parse(content);
+    htmlContent = htmlContent.replace(
+      /<input[^>]*disabled=""[^>]*>/g,
+      (match) => match.replace(/disabled=""/, "")
+    );
     const finalHTML = template
 
       .replaceAll("{{description}}", data.description || "")
