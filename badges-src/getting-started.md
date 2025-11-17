@@ -2,7 +2,7 @@
 title: Getting Started
 emoji: 🌱
 type: Free – Life Skills
-category: Resourcefulness & Daily Survival
+category: Foundations
 purpose: Establish a foundation for participation — forming a group or going solo, setting norms, scheduling, and creating reflection practices.
 overview: Welcome to your adventure! This badge helps you set up your journey with clarity, intention, and flexibility. Whether you’re starting solo or with friends, you’ll create the structures and habits that let you explore DIY Scouting.
 ---

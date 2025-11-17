@@ -28,6 +28,8 @@ async function build() {
       headerIds: false, // avoids weird auto-generated header IDs
     });
 
+    const category = data.category || "default";
+
     let htmlContent = marked.parse(content);
     htmlContent = htmlContent.replace(
       /<input[^>]*disabled=""[^>]*>/g,
@@ -42,6 +44,12 @@ async function build() {
       .replaceAll("{{category}}", data.category || "Category")
       .replaceAll("{{purpose}}", data.purpose || "Purpose")
       .replaceAll("{{overview}}", data.overview || "Overview")
+      .replace(
+        "{{badge}}",
+        `<span class="badge category-${category.toLowerCase()}">${
+          data.emoji
+        }</span>`
+      )
       .replaceAll("{{content}}", htmlContent);
 
     const outName = file.replace(/\.md$/, ".html");
